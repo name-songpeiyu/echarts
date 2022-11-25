@@ -1,8 +1,7 @@
 (function () {
-    // 监控模块
-    // 获取点击的tab  choseTab
+    // 获取点击
     var choseTab = document.getElementsByClassName('choseTab');
-    // 获取下面对应的显示内容  showTab
+    // 获取下面对应的显示内容 
 
     var showTab = document.getElementsByClassName('showTab');
 
@@ -26,35 +25,20 @@
 
 })();
 
-
-// 自执行的函数的好处  可以控制变量的作用域 
-// 在其他的地方就可以使用相同的类名 而不会产生冲突
-// 点位分布模块
-
-
 (function () {
     var myChart = echarts.init(document.querySelector('.pie'));
 
     var option = {
         color: ['#006cff', '#60cda0', '#ed8884', '#ff9f7f', '#0096ff', '#9fe6b8', '#32c5e9', '#1d9dff'],
         tooltip: {
-            // item 表述 鼠标到饼图的每一项内容的时候 触发提示信息
             trigger: 'item',
-            // a:series 选项下面的name
-            // b:  series下面data中的name
-            // c:  series下面data中的value
-            // d:  当前value 占所以内容的比例
             formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
         series: [
             {
                 name: '老陈学员分布',
-                // pie 饼图  
                 type: 'pie',
-                // 百分比 具体指都可以  百分比加一号
-                // 1：内圆的半径  2 外圆的半径
                 radius: ['10%', '65%'],
-                // 设置水平方向  垂直方法  50% 居中
                 center: ['50%', '50%'],
                 roseType: 'radius',
                 itemStyle: {
@@ -83,18 +67,9 @@
 
     myChart.setOption(option);
 
-
-    // 解决echarts设置option后 ，图标特别小的情况
-    //页面加载的时候 调用echarts实例对象的reszie（）方法
-    // 必须使用时间监听
-
-
     window.addEventListener('load', function () {
         myChart.resize();
     });
-
-    // 当屏幕重置大小的时候 继续调用echarts的重置大小方法
-    // 自动适应当前屏幕
     window.addEventListener('resize', function () {
         myChart.resize();
     })
@@ -102,9 +77,7 @@
 })();
 
 
-// 全国用户总量统计模块
-// 插入的位置  类名 .bar
-
+//总量统计模块
 (function () {
     var item = {
         name: '',
@@ -132,17 +105,15 @@
             x2: 0,
             y2: 1,
             colorStops: [{
-                offset: 0, color: '#00fffb' // 0% 处的颜色
+                offset: 0, color: '#00fffb'
             }, {
-                offset: 1, color: '#0061ce' // 100% 处的颜色
+                offset: 1, color: '#0061ce'
             }],
-            global: false // 缺省为 false
+            global: false
         },
         tooltip: {
             trigger: 'item',
             // 触发的时候 效果  shadow 阴影
-            //                line 虚线
-            //                none 没效果
             axisPointer: {
                 type: 'none'
             }
@@ -232,13 +203,9 @@
         timeTab[i].onclick = function () {
             index_ = this.getAttribute("index");
             for (var j = 0; j < timeTab.length; j++) {
-                // timeTab[j].className = '';
-                // timeTab[index_].className = 'active';
                 timeTab[j].classList.remove('active');
                 timeTab[index_].classList.add('active');
             }
-
-            //切换对应内容的显示和隐藏
             // 通过orderDataHidden 类名进行控制
             for (var k = 0; k < orderData.length; k++) {
                 orderData[k].classList.add('orderDataHidden');
@@ -259,10 +226,6 @@
 
     }
     autoCheck();
-
-    // 鼠标来到订单框的时候  计时器停
-    // 鼠标移除的时候 计时器继续进行
-
     var order = document.getElementsByClassName('order')[0];
 
     order.onmouseenter = function () {
@@ -275,9 +238,7 @@
     }
 })();
 
-//销售额统计模块
-
-
+//销售额
 (function () {
     var data = {
         year: [
@@ -307,18 +268,18 @@
         legend: {
             data: ['预期销售额', '实际销售额'],
             textStyle: {
-                color: '#4c9bfd' // 图例文字颜色
+                color: '#4c9bfd'
             },
-            right: '10%' // 距离右边10%
+            right: '10%'
         },
         grid: {
             top: '20%',
             left: '3%',
             right: '4%',
             bottom: '3%',
-            show: true,// 显示边框
-            borderColor: '#012f4a',// 边框颜色
-            containLabel: true // 包含刻度文字在内
+            show: true,
+            borderColor: '#012f4a',
+            containLabel: true
         },
 
         xAxis: {
@@ -328,24 +289,24 @@
                 show: false
             },
             axisLabel: {
-                color: '#4c9bfd' // 文本颜色
+                color: '#4c9bfd'
             },
             axisLine: {
-                show: false // 去除轴线
+                show: false
             },
-            boundaryGap: false  // 去除轴内间距
+            boundaryGap: false
         },
         yAxis: {
             type: 'value',
             axisTick: {
-                show: false  // 去除刻度
+                show: false
             },
             axisLabel: {
-                color: '#4c9bfd' // 文字颜色
+                color: '#4c9bfd'
             },
             splitLine: {
                 lineStyle: {
-                    color: '#012f4a' // 分割线颜色
+                    color: '#012f4a'
                 }
             }
         },
@@ -355,7 +316,7 @@
                 type: 'line',
                 stack: 'Total',
                 data: data.year[0],
-                smooth: true// 折现变圆滑
+                smooth: true
             },
             {
                 name: '实际销售额',
@@ -372,7 +333,7 @@
     // 点击切换年月日
     var timeTab = document.getElementsByClassName('timeTab');
     var index_ = 0;
-    var timer = null;//计时器
+    var timer = null;
     for (var i = 0; i < timeTab.length; i++) {
         timeTab[i].setAttribute('index', i);
 
@@ -384,12 +345,7 @@
                 timeTab[index_].classList.add('active');
             }
 
-            // 获取自定义属性携带的时间
-
             var dataTime = this.getAttribute('data-time');
-            // console.log(typeof dataTime);
-            // console.log(data[dataTime][0]);
-            // console.log(data[dataTime][1]);
 
             option.series[0].data = data[dataTime][0];
             option.series[1].data = data[dataTime][1];
@@ -413,7 +369,6 @@
     auto();
 
     // 鼠标移入暂停 移出继续
-
     var sales = document.querySelector('.sales');
     sales.onmouseenter = function () {
         clearInterval(timer);
@@ -449,10 +404,8 @@
                 { name: '地铁', max: 100 }
             ],
             shape: 'circle',
-            // 整个雷达图 有几个圈
             splitNumber: 4,
             axisName: {
-                //雷达图 文字的颜色
                 color: '#4c9bfd'
             },
             splitLine: {
@@ -471,7 +424,6 @@
         },
         tooltip: {
             show: true,
-            // 控制提示框组件的显示位置
             position: ['60%', '0%'],
             backgroundColor: 'rgba(255, 255, 255, 0.3)'
         },
@@ -482,7 +434,6 @@
                 lineStyle: {
                     normal: {
                         color: '#fff',
-                        // width: 1
                     }
                 },
                 data: [[90, 100, 56, 11, 34]],

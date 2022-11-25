@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 body {
@@ -8,24 +9,17 @@ body {
   background-size: cover;
 }
 
-/* 修改默认样式 */
-h4,
-h3,
 ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
 }
 
-ul {
-  list-style: none;
-}
-
 a {
   text-decoration: none;
 }
 
-/* 布局˙整体 .viewport */
+/* 布局整体盒子 */
 
 .viewport {
   min-width: 1024px;
@@ -40,16 +34,14 @@ a {
 
 .viewport>.column {
   flex: 3;
-  /* background-color: rgb(241, 210, 210); */
 }
 
 .viewport>.column:nth-of-type(2) {
   flex: 4;
-  /* background-color: rgb(184, 217, 247); */
   margin: 0.375rem 0.1875rem 0;
 }
 
-/* 公共样式  图片边框 */
+/* 图片边框 */
 .panel {
   border: 1px solid transparent;
   border-image-source: url(../images/border.png);
@@ -103,7 +95,7 @@ a {
   color: #4c9bfd;
 }
 
-/* 全部样式的小竖点 */
+/* 小竖点 */
 .line {
   display: inline-block;
   width: 0.05rem;
@@ -121,13 +113,11 @@ a {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
-  /* background-color: rgb(245, 183, 183, 0.6); */
 }
 
-/* 监控导航部分 */
+/* 导航部分 */
 .monitoring .tabs {
   font-size: 0.225rem;
-  /* background-color: rgb(224, 144, 144); */
   height: 0.375rem;
   display: flex;
   align-items: center;
@@ -141,7 +131,7 @@ a {
   color: white;
 }
 
-/* 两个a标签中间的 竖线 */
+/* 竖线 */
 .tabs>.line {
   display: inline-block;
   width: 3px;
@@ -152,7 +142,6 @@ a {
 }
 
 .content {
-  /* background-color: rgb(221, 185, 185); */
   margin-top: 0.125rem;
   box-sizing: border-box;
   flex: 1;
@@ -184,7 +173,6 @@ a {
 
 .content .col:nth-of-type(2) {
   width: 2.5rem;
-  /* background-color: red; */
 }
 
 .content .col:nth-of-type(3) {
@@ -218,14 +206,12 @@ a {
 .point .chart {
   display: flex;
   justify-content: space-between;
-  /* background-color: rgb(250, 212, 212); */
   margin-top: 0.125rem;
 }
 
 .point .pie {
   width: 3.9rem;
   height: 2.4rem;
-  /* background-color: rgb(243, 195, 195); */
 }
 
 .point .data {
@@ -249,8 +235,6 @@ a {
   color: #f8ab05;
   font-size: 0.175rem;
 }
-
-/*点位总数和本月新增左侧的点 同意使用line类名 在上面概览模块已经设置过了  只用在内部写bagcground-color颜色即可*/
 
 /* 地图  */
 
@@ -306,7 +290,6 @@ a {
 .users .bar {
   width: 7.35rem;
   height: 2.4rem;
-  /* background-color: rgb(211, 133, 133); */
 }
 
 .users .data {
@@ -321,7 +304,6 @@ a {
 }
 
 .users h4 {
-  /* margin-bottom: 0.15rem; */
   font-size: 0.25rem;
   color: #fff;
 }
@@ -424,7 +406,6 @@ a {
 }
 
 .sales .chart {
-  /* background-color: pink; */
   flex: 1;
   padding-top: 0.125rem;
   position: relative;
@@ -441,7 +422,6 @@ a {
 .sales .sline {
   width: 100%;
   height: 90%;
-  /* background-color: rgb(240, 172, 172); */
 }
 
 /* 渠道 季度区块 */
@@ -470,7 +450,6 @@ a {
 .channel .data .radar {
   height: 1.8rem;
   width: 100%;
-  /* background-color: pink; */
 }
 
 .channel h4 {
@@ -498,7 +477,6 @@ a {
 
 .quarter .chart {
   flex: 1;
-  /* padding-top: 0.225rem; */
 }
 
 .quarter .box {
@@ -557,14 +535,23 @@ a {
 .plan .chart {
   display: flex;
   justify-content: space-between;
-  /* background-color: rgb(250, 212, 212); */
   margin-top: 0;
+}
+
+.plan h4 {
+  font-size: 0.25rem;
+  color: #fff;
+}
+
+.plan span {
+  display: block;
+  color: #f8ab05;
+  font-size: 0.175rem;
 }
 
 .plan .water {
   width: 3.9rem;
   height: 1.8rem;
-  /* background-color: rgb(92, 6, 6, 0.5); */
   margin-right: 0.125rem;
 }
 
@@ -577,15 +564,4 @@ a {
   box-sizing: border-box;
   background-image: url(../images/rect.png);
   background-size: cover;
-}
-
-.plan h4 {
-  font-size: 0.25rem;
-  color: #fff;
-}
-
-.plan span {
-  display: block;
-  color: #f8ab05;
-  font-size: 0.175rem;
 }
