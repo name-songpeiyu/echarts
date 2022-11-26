@@ -189,6 +189,10 @@ a {
   animation: rollPlay linear 10s infinite;
 }
 
+.message>.messageScrool:hover {
+  animation-play-state: paused;
+}
+
 @keyframes rollPlay {
   0% {}
 
